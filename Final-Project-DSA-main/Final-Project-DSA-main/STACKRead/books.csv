@@ -1,7 +1,11 @@
 bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,ratings_count,text_reviews_count,publication_date,publisher
-1,The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,517226952,9.78E+12,eng,815,3628,254,11/01/2005,Gramercy Books
-2,The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,345453743,9.78E+12,eng,815,249558,4080,4/30/2002,Del Rey Books
-3,The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1),Douglas Adams,4.22,1400052920,9.78E+12,eng,215,4930,460,08/03/2004,Crown
-4,The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1),Douglas Adams/Stephen Fry,4.22,739322206,9.78E+12,eng,6,1266,253,3/23/2005,Random House Audio
-5,The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,517149257,9.78E+12,eng,815,2877,195,1/17/1996,Wings Books
-6,A Short History of Nearly Everything,Bill Bryson,4.21,076790818X,9.78E+12,eng,544,248558,9396,9/14/2004,Broadway Books
+1.0,Harry Potter and the Half-Blood Prince (Harry Potter  #6),J.K. Rowling/Mary GrandPré,4.57,439785960,9780440000000.0,eng,652.0,2095690.0,27591.0,9/16/2006,Scholastic Inc.
+2.0,Harry Potter and the Order of the Phoenix (Harry Potter  #5),J.K. Rowling/Mary GrandPré,4.49,439358078,9780440000000.0,eng,870.0,2153167.0,29221.0,09/01/2004 0:00,Scholastic Inc.
+3.0,Harry Potter and the Chamber of Secrets (Harry Potter  #2),J.K. Rowling,4.42,439554896,9780440000000.0,eng,352.0,6333.0,244.0,11/01/2003 0:00,Scholastic
+4.0,Harry Potter and the Prisoner of Azkaban (Harry Potter  #3),J.K. Rowling/Mary GrandPré,4.56,043965548X,9780440000000.0,eng,435.0,2339585.0,36325.0,05/01/2004 0:00,Scholastic Inc.
+5.0,Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5),J.K. Rowling/Mary GrandPré,4.78,439682584,9780440000000.0,eng,2690.0,41428.0,164.0,9/13/2004,Scholastic
+6.0,"Unauthorized Harry Potter Book Seven News: ""Half-Blood Prince"" Analysis and Speculation",W. Frederick Zimmerman,3.74,976540606,9780980000000.0,en-US,152.0,19.0,1.0,4/26/2005,Nimble Books
+7.0,Harry Potter Collection (Harry Potter  #1-6),J.K. Rowling,4.73,439827604,9780440000000.0,eng,3342.0,28242.0,808.0,09/12/2005 0:00,Scholastic
+8.0,The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,517226952,9780520000000.0,eng,815.0,3628.0,254.0,11/01/2005 0:00,Gramercy Books
+9.0,The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,345453743,9780350000000.0,eng,815.0,249558.0,4080.0,4/30/2002,Del Rey Books
+10.0,The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1),Douglas Adams,4.22,1400052920,9781400000000.0,eng,215.0,4930.0,460.0,08/03/2004 0:00,Crown

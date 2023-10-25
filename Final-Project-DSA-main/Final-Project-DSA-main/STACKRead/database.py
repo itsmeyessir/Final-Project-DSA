@@ -46,8 +46,19 @@ def login():
 def add_book():
     title = input("Enter the title of the book: ")
     author = input("Enter the author's name: ")
-    dff = dff.append({'Title': title, 'Author': author}, ignore_index=True)
+
+    # Load existing data from CSV
+    dff = pd.read_csv(csv_file)
+
+    # Create a new DataFrame for the book to be added
+    new_book = pd.DataFrame({'title': [title], 'authors': [author]})
+
+    # Concatenate the new book DataFrame with the existing DataFrame
+    dff = pd.concat([dff, new_book], ignore_index=True)
+
+    # Save the updated data to the CSV file, overwriting the previous data
     dff.to_csv(csv_file, index=False)
+    save_user_credentials()
     print("Book added successfully!")
     
 def select_book():
@@ -72,12 +83,24 @@ def select_book():
 
 def delete_book():
     title = input("Enter the title of the book to delete: ")
-    dff = dff[dff['Title'] != title]
+
+    # Load existing data from CSV
+    dff = pd.read_csv(csv_file)
+
+    # Create a new DataFrame excluding the book to be deleted
+    dff = dff[dff['title'] != title]
+
+    # Save the updated data to the CSV file, overwriting the previous data
     dff.to_csv(csv_file, index=False)
+    save_user_credentials()
     print("Book deleted successfully!")
 
 def save_to_excel():
-    df.to_excel(excel_file, index=False)
+    # Read data from CSV into dff DataFrame
+    dff = pd.read_csv(csv_file)
+
+    # Save the data to the Excel file
+    dff.to_csv(csv_file, index=False)
     save_user_credentials()
     print("Data saved to Excel and user credentials saved to CSV successfully!")
 
