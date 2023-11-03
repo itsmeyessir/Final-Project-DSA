@@ -2,29 +2,25 @@ import pandas as pd
 import os
 
 # File paths
-excel_file = 'books.xlsx'
-csv_file = 'books.csv'
-usercreds_csv_file = 'usercreds.csv'
-usercreds_xlsx_file = 'usercreds.xlsx'
+books_excel_file = 'books.xlsx'
+usercreds_excel_file = 'usercreds.xlsx'
 
 # Hash table to store username and password
 user_credentials = {}
 
-# Load existing user credentials from CSV
-if os.path.exists(usercreds_csv_file):
-    dfff = pd.read_csv(usercreds_csv_file)
-    for index, row in dfff.iterrows():
+# Load existing user credentials from excel
+if os.path.exists(usercreds_excel_file):
+    dff = pd.read_excel(usercreds_excel_file)
+    for index, row in dff.iterrows():
         user_credentials[row['Username']] = row['Password']
         
-# Load existing data from Excel and CSV
-df = pd.read_excel(excel_file)
-dff = pd.read_csv(csv_file)
-dfff = pd.read_csv(usercreds_csv_file)
-dffff = pd.read_excel(usercreds_xlsx_file)
+# Load existing data from Excel
+df = pd.read_excel(books_excel_file)
+dff = pd.read_excel(usercreds_excel_file)
 
 def save_user_credentials():
-    dfff = pd.DataFrame(user_credentials.items(), columns=['Username', 'Password'])
-    dfff.to_csv(usercreds_csv_file, index=False)
+    dff = pd.DataFrame(user_credentials.items(), columns=['Username', 'Password'])
+    dff.to_excel(usercreds_excel_file, index=False)
 
 def sign_up():
     username = input("Enter a username: ")
@@ -47,17 +43,20 @@ def add_book():
     title = input("Enter the title of the book: ")
     author = input("Enter the author's name: ")
 
-    # Load existing data from CSV
-    dff = pd.read_csv(csv_file)
+    # Load existing data from excel
+    df = pd.read_excel(books_excel_file)
 
-    # Create a new DataFrame for the book to be added
-    new_book = pd.DataFrame({'title': [title], 'authors': [author]})
+    # Determine the next available Book ID
+    next_book_id = len(df) + 1
+
+    # Create a new DataFrame for the book to be added with the determined Book ID
+    new_book = pd.DataFrame({'bookID': [next_book_id], 'Title': [title], 'Author': [author]})
 
     # Concatenate the new book DataFrame with the existing DataFrame
-    dff = pd.concat([dff, new_book], ignore_index=True)
+    df = pd.concat([df, new_book], ignore_index=True)
 
-    # Save the updated data to the CSV file, overwriting the previous data
-    dff.to_csv(csv_file, index=False)
+    # Save the updated data to the excel file, overwriting the previous data
+    df.to_excel(books_excel_file, index=False)
     save_user_credentials()
     print("Book added successfully!")
     
@@ -84,25 +83,25 @@ def select_book():
 def delete_book():
     title = input("Enter the title of the book to delete: ")
 
-    # Load existing data from CSV
-    dff = pd.read_csv(csv_file)
+    # Load existing data from excel
+    df = pd.read_excel(books_excel_file)
 
     # Create a new DataFrame excluding the book to be deleted
-    dff = dff[dff['title'] != title]
+    df = df[df['title'] != title]
 
-    # Save the updated data to the CSV file, overwriting the previous data
-    dff.to_csv(csv_file, index=False)
+    # Save the updated data to the excel file, overwriting the previous data
+    df.to_excel(books_excel_file, index=False)
     save_user_credentials()
     print("Book deleted successfully!")
 
 def save_to_excel():
-    # Read data from CSV into dff DataFrame
-    dff = pd.read_csv(csv_file)
+    # Read data from excel into dff DataFrame
+    df = pd.read_excel(books_excel_file)
 
     # Save the data to the Excel file
-    dff.to_csv(csv_file, index=False)
+    df.to_excel(books_excel_file, index=False)
     save_user_credentials()
-    print("Data saved to Excel and user credentials saved to CSV successfully!")
+    print("Data saved to Excel and user credentials saved to excel successfully!")
 
 def main():
     while True:
