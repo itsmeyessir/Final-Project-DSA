@@ -63,6 +63,9 @@ def add_book():
 def select_book():
     title = input("Enter the title or ID of the book you want to select: ")
     
+    # Load existing data from excel
+    df = pd.read_excel(books_excel_file)
+
     # Try to convert the input to an integer (assuming it's an ID)
     try:
         book_id = int(title)
@@ -70,15 +73,17 @@ def select_book():
             print("Invalid book ID.")
             return
         book_info = df.iloc[book_id - 1]
-    except ValueError:
-        # If it's not a valid integer, search by title
-        book_info = df[df['Title'] == title]
-
-    if book_info.empty:
-        print("Book not found in the database.")
-    else:
         print("Book Details:")
         print(book_info)
+    except ValueError:
+        # If it's not a valid integer, search by title using str.contains for partial and case-insensitive matching
+        found_books = df[df['Title'].str.contains(title, case=False)]
+        if found_books.empty:
+            print("Book not found in the database.")
+        else:
+            print("Book Details:")
+            print(found_books)
+
 
 def delete_book():
     title = input("Enter the title of the book to delete: ")
